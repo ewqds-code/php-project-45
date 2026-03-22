@@ -1,0 +1,21 @@
+{
+    "name": "hexlet/code",
+    "description": "test project for hexlet",
+    "bin": [
+	"bin/brain-games"
+    ],
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hexlet\\Code\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vladimir Maltsev",
+            "email": "vladimir.maltsev.work@gmail.com"
+        }
+    ],
+    "require": {}
+}
