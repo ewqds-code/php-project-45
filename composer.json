@@ -2,14 +2,17 @@
     "name": "hexlet/code",
     "description": "test project for hexlet",
     "bin": [
-	"bin/brain-games"
+	    "bin/brain-games"
     ],
     "type": "project",
     "license": "MIT",
     "autoload": {
         "psr-4": {
             "Hexlet\\Code\\": "src/"
-        }
+        },
+        "files": [
+            "src/Cli.php"
+        ]
     },
     "authors": [
         {
@@ -17,5 +20,7 @@
             "email": "vladimir.maltsev.work@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "wp-cli/php-cli-tools": "^0.12.8"
+    }
 }
