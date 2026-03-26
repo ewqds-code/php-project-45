@@ -2,16 +2,18 @@
     "name": "hexlet/code",
     "description": "test project for hexlet",
     "bin": [
-	    "bin/brain-games"
+	    "bin/brain-games",
+        "bin/brain-even"
     ],
     "type": "project",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Hexlet\\Code\\": "src/"
+            "BrainGames\\": "src/"
         },
         "files": [
-            "src/Cli.php"
+            "src/Cli.php",
+            "src/Even.php"
         ]
     },
     "authors": [
