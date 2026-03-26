@@ -12,4 +12,4 @@
 
 ### asciinema
 
-[![record](https://asciinema.org/connect/472041dc-3c86-4ae0-8502-e3f2b48e4bd6)](https://github.com/ewqds-code/php-project-45/actions)
+https://asciinema.org/a/472041dc-3c86-4ae0-8502-e3f2b48e4bd6
