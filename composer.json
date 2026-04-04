@@ -3,7 +3,8 @@
     "description": "test project for hexlet",
     "bin": [
 	    "bin/brain-games",
-        "bin/brain-even"
+        "bin/brain-even",
+        "bin/brain-calc"
     ],
     "type": "project",
     "license": "MIT",
@@ -12,7 +13,9 @@
             "BrainGames\\": "src/"
         },
         "files": [
-            "src/Cli.php"
+            "src/Cli.php",
+            "src/Engine.php",
+            "src/Games/Even.php"
         ]
     },
     "authors": [

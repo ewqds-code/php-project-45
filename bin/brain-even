@@ -3,32 +3,37 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use function cli\line;
-use function cli\prompt;
+// use function cli\line;
+// use function cli\prompt;
 use function BrainGames\Cli\run;
+use function BrainGames\Engine\engine;
 
 $name = run();
 
-$attempCount = 3;
+engine($name);
 
-for ($i = 0; $i < $attempCount; $i++) {
-    $randomNumber = mt_rand(1, 99);
 
-    line('Answer "yes" if the number is even, otherwise answer "no".');
-    line('Question: %s', $randomNumber);
-    $userAnswer = prompt('Your answer: ');
-    $correctAnswer = (isEven(($randomNumber))) ? "yes" : "no";
 
-    if ($userAnswer === $correctAnswer) {
-        line('Correct!');
-        continue;
-    } else {
-        line("%s is wrong answer ;(. Correct answer was %s. Let's try again, %s!", $userAnswer, $correctAnswer, $name);
-        return ;
-    }
-}
+// $attempCount = 3;
 
-function isEven($number): string
-{
-    return ($number % 2) === 0;
-}
+// for ($i = 0; $i < $attempCount; $i++) {
+//     $randomNumber = mt_rand(1, 99);
+
+//     line('Answer "yes" if the number is even, otherwise answer "no".');
+//     line('Question: %s', $randomNumber);
+//     $userAnswer = prompt('Your answer: ');
+//     $correctAnswer = (isEven(($randomNumber))) ? "yes" : "no";
+
+//     if ($userAnswer === $correctAnswer) {
+//         line('Correct!');
+//         continue;
+//     } else {
+//         line("%s is wrong answer ;(. Correct answer was %s. Let's try again, %s!", $userAnswer, $correctAnswer, $name);
+//         return ;
+//     }
+// }
+
+// function isEven($number): string
+// {
+//     return ($number % 2) === 0;
+// }
