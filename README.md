@@ -12,4 +12,4 @@
 
 ### asciinema
 
-[![asciicast](https://asciinema.org/a/BCCDNQ59WBfTv2YB.svg)](https://asciinema.org/a/BCCDNQ59WBfTv2YB)
+[![asciicast](https://asciinema.org/a/gdcOM3YJbafELdTk.svg)](https://asciinema.org/a/gdcOM3YJbafELdTk)
