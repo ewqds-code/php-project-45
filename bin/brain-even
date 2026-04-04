@@ -16,20 +16,16 @@ for ($i = 0; $i < $attempCount; $i++) {
 
     line('Answer "yes" if the number is even, otherwise answer "no".');
     line('Question: %s', $randomNumber);
-    $answer = prompt('Your answer: ');
+    $userAnswer = prompt('Your answer: ');
+    $correctAnswer = (isEven(($randomNumber))) ? "yes" : "no";
 
-    if (answerToBool($answer) === (bool) isEven($randomNumber)) {
+    if ($userAnswer === $correctAnswer) {
         line('Correct!');
         continue;
     } else {
-        line("'yes' is wrong answer ;(. Correct answer was 'no'. Let's try again, %s!", $name);
+        line("%s is wrong answer ;(. Correct answer was %s. Let's try again, %s!", $userAnswer, $correctAnswer, $name);
         return ;
     }
-}
-
-function answerToBool($answer): bool
-{
-    return ($answer === "yes") ? true : false;
 }
 
 function isEven($number): string
