@@ -30,15 +30,18 @@ function selectGame($gameName)
         case 'even':
             $gameFunction = '\BrainGames\Games\Even\evenGame';
             break;
+        case 'calc':
+            $gameFunction = '\BrainGames\Games\Calc\calcGame';
+            break;
         default:
-            echo 'Ошибка. Нужно передать имя игры';
+            echo "\nНеизвестное название игры\n";
             break;
     }
 
     return $gameFunction;
 }
 
-function checkAnswer($userAnswer, $correctAnswer, $name)
+function checkAnswer(string $userAnswer, string $correctAnswer, string $name): bool
 {
     if ($userAnswer === $correctAnswer) {
         line('Correct!');

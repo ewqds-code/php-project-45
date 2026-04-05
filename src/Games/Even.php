@@ -12,7 +12,7 @@ function evenGame()
     line('Answer "yes" if the number is even, otherwise answer "no".');
     line('Question: %s', $randomNumber);
 
-    $userAnswer = prompt('Your answer: ');
+    $userAnswer = prompt('Your answer');
     $correctAnswer = (isEven(($randomNumber))) ? "yes" : "no";
 
     return [$userAnswer, $correctAnswer];
