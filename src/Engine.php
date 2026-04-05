@@ -3,23 +3,39 @@
 namespace BrainGames\Engine;
 
 use function cli\line;
-use function BrainGames\Games\Even\evenGame;
+use function BrainGames\Cli\run as runGreetings;
 
 const ATTEMPT_COUNT = 3;
 
-function engine($name)
+function runGame($gameName)
 {
-    for ($i = 0; $i < ATTEMPT_COUNT; $i++) {
-    [$userAnswer, $correctAnswer] = evenGame();
+    $name = runGreetings();
 
-    $result = checkAnswer($userAnswer, $correctAnswer, $name);
-    
-    if ($result) {
-        continue;
+    for ($i = 0; $i < ATTEMPT_COUNT; $i++) {
+        $gameFunction = selectGame($gameName);
+        [$userAnswer, $correctAnswer] = call_user_func($gameFunction);
+        $result = checkAnswer($userAnswer, $correctAnswer, $name);
+
+        if ($result) {
+            continue;
         } else {
             return ;
         }
     }
+}
+
+function selectGame($gameName)
+{
+    switch ($gameName) {
+        case 'even':
+            $gameFunction = '\BrainGames\Games\Even\evenGame';
+            break;
+        default:
+            echo 'Ошибка. Нужно передать имя игры';
+            break;
+    }
+
+    return $gameFunction;
 }
 
 function checkAnswer($userAnswer, $correctAnswer, $name)
@@ -28,9 +44,10 @@ function checkAnswer($userAnswer, $correctAnswer, $name)
         line('Correct!');
         return true;
     } else {
-        line("%s is wrong answer ;(. Correct answer was %s. Let's try again, %s!", 
-            $userAnswer, 
-            $correctAnswer, 
+        line(
+            "%s is wrong answer ;(. Correct answer was %s. Let's try again, %s!",
+            $userAnswer,
+            $correctAnswer,
             $name
         );
         return false;

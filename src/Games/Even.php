@@ -1,4 +1,5 @@
 <?php
+
 namespace BrainGames\Games\Even;
 
 use function cli\line;
@@ -10,7 +11,7 @@ function evenGame()
 
     line('Answer "yes" if the number is even, otherwise answer "no".');
     line('Question: %s', $randomNumber);
-    
+
     $userAnswer = prompt('Your answer: ');
     $correctAnswer = (isEven(($randomNumber))) ? "yes" : "no";
 
