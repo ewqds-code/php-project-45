@@ -15,7 +15,7 @@ function calcGame()
     line('What is the result of the expression?');
     line('Question: %s', $expression);
 
-    $userAnswer = prompt('Your answer');
+    $userAnswer = (string) prompt('Your answer');
     $correctAnswer = calculateExpression($number1, $number2, $operation);
 
     return [$userAnswer, $correctAnswer];

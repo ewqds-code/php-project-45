@@ -13,13 +13,13 @@ function gcdGame()
     line('Find the greatest common divisor of given numbers.');
     line('Question: %s %s', $number1, $number2);
 
-    (string) $userAnswer = prompt('Your answer');
-    $correctAnswer = gcd($number1, $number2);
+    $userAnswer = (string) prompt('Your answer');
+    $correctAnswer = findGcd($number1, $number2);
 
     return [$userAnswer, $correctAnswer];
 }
 
-function gcd(int $num1, int $num2): string
+function findGcd(int $num1, int $num2): string
 {
     if ($num2 == 0) {
         return (string) abs($num1);
