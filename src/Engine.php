@@ -4,16 +4,20 @@ namespace BrainGames\Engine;
 
 use function cli\line;
 use function BrainGames\Cli\run as runGreetings;
+use function BrainGames\Games\Calc\calcGame;
+use function BrainGames\Games\Even\evenGame;
+use function BrainGames\Games\GCD\gcdGame;
+use function BrainGames\Games\Prime\primeGame;
+use function BrainGames\Games\Progression\progressionGame;
 
 const ATTEMPT_COUNT = 3;
 
 function runGame(string $gameName): void
 {
     $name = runGreetings();
-    $gameFunction = selectGame($gameName);
 
     for ($i = 0; $i < ATTEMPT_COUNT; $i++) {
-        [$userAnswer, $correctAnswer] = $gameFunction();
+        [$userAnswer, $correctAnswer] = selectGame($gameName);
         if (!checkAnswer($userAnswer, $correctAnswer, $name)) {
             return;
         }
@@ -23,16 +27,16 @@ function runGame(string $gameName): void
 }
 
 /**
- * @return callable(): array{0: string, 1: string}
+ * @return array{0: string, 1: string}
  */
-function selectGame(string $gameName): callable
+function selectGame(string $gameName): array
 {
     return match ($gameName) {
-        'even' => static fn (): array => \BrainGames\Games\Even\evenGame(),
-        'calc' => static fn (): array => \BrainGames\Games\Calc\calcGame(),
-        'gcd' => static fn (): array => \BrainGames\Games\GCD\gcdGame(),
-        'progression' => static fn (): array => \BrainGames\Games\Progression\progressionGame(),
-        'prime' => static fn (): array => \BrainGames\Games\Prime\primeGame(),
+        'even' => evenGame(),
+        'calc' => calcGame(),
+        'gcd' => gcdGame(),
+        'progression' => progressionGame(),
+        'prime' => primeGame(),
         default => throw new \InvalidArgumentException("Unknown game: {$gameName}"),
     };
 }
