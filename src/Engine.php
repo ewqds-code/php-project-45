@@ -13,7 +13,7 @@ function runGame(string $gameName): void
     $gameFunction = selectGame($gameName);
 
     for ($i = 0; $i < ATTEMPT_COUNT; $i++) {
-        [$userAnswer, $correctAnswer] = call_user_func($gameFunction);
+        [$userAnswer, $correctAnswer] = $gameFunction();
         if (!checkAnswer($userAnswer, $correctAnswer, $name)) {
             return;
         }
@@ -22,7 +22,10 @@ function runGame(string $gameName): void
     line('Congratulations, %s!', $name);
 }
 
-function selectGame(string $gameName): string
+/**
+ * @return callable(): array{0: string, 1: string}
+ */
+function selectGame(string $gameName): callable
 {
     return match ($gameName) {
         'even' => '\BrainGames\Games\Even\evenGame',
