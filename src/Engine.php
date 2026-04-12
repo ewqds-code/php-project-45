@@ -10,19 +10,16 @@ const ATTEMPT_COUNT = 3;
 function runGame($gameName)
 {
     $name = runGreetings();
+    $gameFunction = selectGame($gameName);
 
     for ($i = 0; $i < ATTEMPT_COUNT; $i++) {
-        $gameFunction = selectGame($gameName);
         [$userAnswer, $correctAnswer] = call_user_func($gameFunction);
-        $result = checkAnswer($userAnswer, $correctAnswer, $name);
-        line("Congratulations, %s!", $name);
-
-        if ($result) {
-            continue;
-        } else {
-            return ;
+        if (!checkAnswer($userAnswer, $correctAnswer, $name)) {
+            return;
         }
     }
+
+    line('Congratulations, %s!', $name);
 }
 
 function selectGame($gameName)
