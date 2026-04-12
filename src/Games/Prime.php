@@ -5,6 +5,9 @@ namespace BrainGames\Games\Prime;
 use function cli\line;
 use function cli\prompt;
 
+/**
+ * @return array{string, string}
+ */
 function primeGame(): array
 {
     $number = random_int(0, 10);

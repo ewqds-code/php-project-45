@@ -5,6 +5,9 @@ namespace BrainGames\Games\GCD;
 use function cli\line;
 use function cli\prompt;
 
+/**
+ * @return array{string, string}
+ */
 function gcdGame(): array
 {
     $number1 = random_int(-100, 100);

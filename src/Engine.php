@@ -27,11 +27,11 @@ function runGame(string $gameName): void
 }
 
 /**
- * @return array{0: string, 1: string}
+ * @return array{string, string}
  */
 function selectGame(string $gameName): array
 {
-    return match ($gameName) {
+    $gameData = match ($gameName) {
         'even' => evenGame(),
         'calc' => calcGame(),
         'gcd' => gcdGame(),
@@ -39,6 +39,9 @@ function selectGame(string $gameName): array
         'prime' => primeGame(),
         default => throw new \InvalidArgumentException("Unknown game: {$gameName}"),
     };
+
+    /** @var array{string, string} $gameData */
+    return $gameData;
 }
 
 function checkAnswer(string $userAnswer, string $correctAnswer, string $name): bool

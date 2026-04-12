@@ -5,6 +5,9 @@ namespace BrainGames\Games\Even;
 use function cli\line;
 use function cli\prompt;
 
+/**
+ * @return array{string, string}
+ */
 function evenGame(): array
 {
     $randomNumber = random_int(1, 99);

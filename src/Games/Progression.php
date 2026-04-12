@@ -7,6 +7,9 @@ use function cli\prompt;
 
 const PROGRESSION_LENGTH = 10;
 
+/**
+ * @return array{string, string}
+ */
 function progressionGame(): array
 {
     $start = random_int(0, 10);
@@ -34,6 +37,9 @@ function generateProgression(int $start, int $length, int $step): array
     return $progression;
 }
 
+/**
+ * @return array{string, string}
+ */
 function prepareGameData(array $progression): array
 {
     $missedIndex = array_rand($progression);

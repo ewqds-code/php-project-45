@@ -5,6 +5,9 @@ namespace BrainGames\Games\Calc;
 use function cli\line;
 use function cli\prompt;
 
+/**
+ * @return array{string, string}
+ */
 function calcGame(): array
 {
     $number1 = random_int(1, 9);
