@@ -5,12 +5,20 @@ namespace BrainGames\Games\Prime;
 use function cli\line;
 use function cli\prompt;
 
+const MIN_RANDOM_NUMBER = 0;
+const MAX_RANDOM_NUMBER = 10;
+const LOWEST_PRIME_NUMBER = 2;
+const FIRST_ODD_DIVISOR = 3;
+const DIVISOR_STEP = 2;
+const EVEN_DIVIDER = 2;
+const ZERO_REMAINDER = 0;
+
 /**
  * @return array{string, string}
  */
 function primeGame(): array
 {
-    $number = random_int(0, 10);
+    $number = random_int(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
 
     $correctAnswer = (isPrime($number)) ? 'yes' : 'no';
 
@@ -24,22 +32,24 @@ function primeGame(): array
 
 function isPrime(int $number): bool
 {
-    if ($number < 2) {
+    if ($number < LOWEST_PRIME_NUMBER) {
         return false;
     }
 
-    $isPrime = true;
+    if ($number === LOWEST_PRIME_NUMBER) {
+        return true;
+    }
 
-    if ($number !== 2 && $number % 2 === 0) {
-        $isPrime = false;
-    } else {
-        for ($i = 3; $i <= sqrt($number); $i += 2) {
-            if ($number % $i === 0) {
-                $isPrime = false;
-                break;
-            }
+    if ($number % EVEN_DIVIDER === ZERO_REMAINDER) {
+        return false;
+    }
+
+    $maxDivisor = (int) sqrt($number);
+    for ($i = FIRST_ODD_DIVISOR; $i <= $maxDivisor; $i += DIVISOR_STEP) {
+        if ($number % $i === ZERO_REMAINDER) {
+            return false;
         }
     }
 
-    return $isPrime;
+    return true;
 }

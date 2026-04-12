@@ -6,14 +6,20 @@ use function cli\line;
 use function cli\prompt;
 
 const PROGRESSION_LENGTH = 10;
+const MIN_START_VALUE = 0;
+const MAX_START_VALUE = 10;
+const MIN_STEP_VALUE = 1;
+const MAX_STEP_VALUE = 10;
+const START_INDEX = 0;
+const INDEX_STEP = 1;
 
 /**
  * @return array{string, string}
  */
 function progressionGame(): array
 {
-    $start = random_int(0, 10);
-    $progressionStep = random_int(1, 10);
+    $start = random_int(MIN_START_VALUE, MAX_START_VALUE);
+    $progressionStep = random_int(MIN_STEP_VALUE, MAX_STEP_VALUE);
 
     $progression = generateProgression($start, PROGRESSION_LENGTH, $progressionStep);
     [$questionStr, $correctAnswer] = prepareGameData($progression);
@@ -30,7 +36,7 @@ function generateProgression(int $start, int $length, int $step): array
 {
     $progression = [];
 
-    for ($i = 0; $i < $length; $i++) {
+    for ($i = START_INDEX; $i < $length; $i += INDEX_STEP) {
         $progression[$i] = $start + $i * $step;
     }
 
