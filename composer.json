@@ -18,7 +18,8 @@
             "src/Games/Even.php",
             "src/Games/Calc.php",
             "src/Games/GCD.php",
-            "src/Games/Progression.php"
+            "src/Games/Progression.php",
+            "src/Games/Prime.php"
         ]
     },
     "authors": [

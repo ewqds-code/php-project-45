@@ -38,7 +38,10 @@ function selectGame($gameName)
             break;
         case 'progression':
             $gameFunction = 'BrainGames\Games\Progression\progressionGame';
-            break;    
+            break;
+        case 'prime':
+            $gameFunction = 'BrainGames\Games\Prime\primeGame';
+            break;        
         default:
             echo "\nНеизвестное название игры\n";
             break;
