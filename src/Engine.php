@@ -15,6 +15,7 @@ function runGame($gameName)
         $gameFunction = selectGame($gameName);
         [$userAnswer, $correctAnswer] = call_user_func($gameFunction);
         $result = checkAnswer($userAnswer, $correctAnswer, $name);
+        line("Congratulations, %s!", $name);
 
         if ($result) {
             continue;

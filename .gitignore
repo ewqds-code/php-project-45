@@ -1,2 +1,5 @@
 /vendor/
 *.cast
+.DS_Store
+.idea/
+.vscode/
