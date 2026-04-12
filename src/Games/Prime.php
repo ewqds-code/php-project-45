@@ -25,19 +25,18 @@ function isPrime(int $number): bool
         return false;
     }
 
-    if ($number === 2) {
-        return true;
-    }
+    $isPrime = true;
 
-    if ($number % 2 === 0) {
-        return false;
-    }
-
-    for ($i = 3; $i <= sqrt($number); $i += 2) {
-        if ($number % $i === 0) {
-            return false;
+    if ($number !== 2 && $number % 2 === 0) {
+        $isPrime = false;
+    } else {
+        for ($i = 3; $i <= sqrt($number); $i += 2) {
+            if ($number % $i === 0) {
+                $isPrime = false;
+                break;
+            }
         }
     }
 
-    return true;
+    return $isPrime;
 }
