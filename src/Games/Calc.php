@@ -7,8 +7,8 @@ use function cli\prompt;
 
 function calcGame()
 {
-    $number1 = mt_rand(1, 9);
-    $number2 = mt_rand(1, 9);
+    $number1 = random_int(1, 9);
+    $number2 = random_int(1, 9);
     $operation = selectOperation();
 
     $expression = "{$number1} {$operation} {$number2}";

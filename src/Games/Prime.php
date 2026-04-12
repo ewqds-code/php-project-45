@@ -7,7 +7,7 @@ use function cli\prompt;
 
 function primeGame(): array
 {
-    $number = mt_rand(0, 10);
+    $number = random_int(0, 10);
 
     $correctAnswer = (isPrime($number)) ? 'yes' : 'no';
 

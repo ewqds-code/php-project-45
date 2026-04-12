@@ -9,8 +9,8 @@ const PROGRESSION_LENGTH = 10;
 
 function progressionGame(): array
 {
-    $start = mt_rand(0, 10);
-    $progressionStep = mt_rand(1, 10);
+    $start = random_int(0, 10);
+    $progressionStep = random_int(1, 10);
 
     $progression = generateProgression($start, PROGRESSION_LENGTH, $progressionStep);
     [$questionStr, $correctAnswer] = prepareGameData($progression);

@@ -7,8 +7,8 @@ use function cli\prompt;
 
 function gcdGame()
 {
-    $number1 = mt_rand(-100, 100);
-    $number2 = mt_rand(-100, 100);
+    $number1 = random_int(-100, 100);
+    $number2 = random_int(-100, 100);
 
     line('Find the greatest common divisor of given numbers.');
     line('Question: %s %s', $number1, $number2);

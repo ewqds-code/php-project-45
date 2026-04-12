@@ -7,7 +7,7 @@ use function cli\prompt;
 
 function evenGame()
 {
-    $randomNumber = mt_rand(1, 99);
+    $randomNumber = random_int(1, 99);
 
     line('Answer "yes" if the number is even, otherwise answer "no".');
     line('Question: %s', $randomNumber);
