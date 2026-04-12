@@ -11,7 +11,6 @@
 [![Actions Status](https://github.com/ewqds-code/php-project-45/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ewqds-code/php-project-45/actions)
 
 ### asciinema Even game
-
 [![asciicast](https://asciinema.org/a/gdcOM3YJbafELdTk.svg)](https://asciinema.org/a/gdcOM3YJbafELdTk)
 
 ### asciinema Calc game
@@ -22,3 +21,6 @@
 
 ### asciinema Progression game
 [![asciicast](https://asciinema.org/a/heofhGZ0MH3UNTcw.svg)](https://asciinema.org/a/heofhGZ0MH3UNTcw)
+
+### asciinema Prime game
+[![asciicast](https://asciinema.org/a/4x6xbwCoS0JOJ5SQ.svg)](https://asciinema.org/a/4x6xbwCoS0JOJ5SQ)
