@@ -28,11 +28,11 @@ function runGame(string $gameName): void
 function selectGame(string $gameName): callable
 {
     return match ($gameName) {
-        'even' => '\BrainGames\Games\Even\evenGame',
-        'calc' => '\BrainGames\Games\Calc\calcGame',
-        'gcd' => '\BrainGames\Games\GCD\gcdGame',
-        'progression' => '\BrainGames\Games\Progression\progressionGame',
-        'prime' => '\BrainGames\Games\Prime\primeGame',
+        'even' => static fn (): array => \BrainGames\Games\Even\evenGame(),
+        'calc' => static fn (): array => \BrainGames\Games\Calc\calcGame(),
+        'gcd' => static fn (): array => \BrainGames\Games\GCD\gcdGame(),
+        'progression' => static fn (): array => \BrainGames\Games\Progression\progressionGame(),
+        'prime' => static fn (): array => \BrainGames\Games\Prime\primeGame(),
         default => throw new \InvalidArgumentException("Unknown game: {$gameName}"),
     };
 }
