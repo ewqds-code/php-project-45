@@ -13,10 +13,10 @@ brain-calc:
 brain-gcd:
 	./bin/brain-gcd
 
-brain-progerssion:
+brain-progression:
 	./bin/brain-progression
 
-brain-priime:
+brain-prime:
 	./bin/brain-prime
 
 validate:

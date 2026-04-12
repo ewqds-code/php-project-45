@@ -2,9 +2,12 @@
     "name": "hexlet/code",
     "description": "test project for hexlet",
     "bin": [
-	    "bin/brain-games",
+        "bin/brain-games",
         "bin/brain-even",
-        "bin/brain-calc"
+        "bin/brain-calc",
+        "bin/brain-gcd",
+        "bin/brain-progression",
+        "bin/brain-prime"
     ],
     "type": "project",
     "license": "MIT",
