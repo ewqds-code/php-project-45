@@ -18,7 +18,7 @@ function progressionGame(): array
     line('What number is missing in the progression?');
     line('Question: %s', $questionStr);
 
-    $userAnswer = (string) prompt('Your answer');
+    $userAnswer = prompt('Your answer');
 
     return [$userAnswer, $correctAnswer];
 }

@@ -5,7 +5,7 @@ namespace BrainGames\Games\Calc;
 use function cli\line;
 use function cli\prompt;
 
-function calcGame()
+function calcGame(): array
 {
     $number1 = random_int(1, 9);
     $number2 = random_int(1, 9);
@@ -15,13 +15,13 @@ function calcGame()
     line('What is the result of the expression?');
     line('Question: %s', $expression);
 
-    $userAnswer = (string) prompt('Your answer');
+    $userAnswer = prompt('Your answer');
     $correctAnswer = calculateExpression($number1, $number2, $operation);
 
     return [$userAnswer, $correctAnswer];
 }
 
-function selectOperation()
+function selectOperation(): string
 {
     $operations = ['+', '-', '*'];
     return $operations[array_rand($operations)];

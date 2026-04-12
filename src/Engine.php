@@ -7,7 +7,7 @@ use function BrainGames\Cli\run as runGreetings;
 
 const ATTEMPT_COUNT = 3;
 
-function runGame($gameName)
+function runGame(string $gameName): void
 {
     $name = runGreetings();
     $gameFunction = selectGame($gameName);
@@ -22,30 +22,16 @@ function runGame($gameName)
     line('Congratulations, %s!', $name);
 }
 
-function selectGame($gameName)
+function selectGame(string $gameName): string
 {
-    switch ($gameName) {
-        case 'even':
-            $gameFunction = '\BrainGames\Games\Even\evenGame';
-            break;
-        case 'calc':
-            $gameFunction = '\BrainGames\Games\Calc\calcGame';
-            break;
-        case 'gcd':
-            $gameFunction = '\BrainGames\Games\GCD\gcdGame';
-            break;
-        case 'progression':
-            $gameFunction = 'BrainGames\Games\Progression\progressionGame';
-            break;
-        case 'prime':
-            $gameFunction = 'BrainGames\Games\Prime\primeGame';
-            break;
-        default:
-            echo "\nНеизвестное название игры\n";
-            break;
-    }
-
-    return $gameFunction;
+    return match ($gameName) {
+        'even' => '\BrainGames\Games\Even\evenGame',
+        'calc' => '\BrainGames\Games\Calc\calcGame',
+        'gcd' => '\BrainGames\Games\GCD\gcdGame',
+        'progression' => '\BrainGames\Games\Progression\progressionGame',
+        'prime' => '\BrainGames\Games\Prime\primeGame',
+        default => throw new \InvalidArgumentException("Unknown game: {$gameName}"),
+    };
 }
 
 function checkAnswer(string $userAnswer, string $correctAnswer, string $name): bool

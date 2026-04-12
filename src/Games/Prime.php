@@ -14,7 +14,7 @@ function primeGame(): array
     line('Answer "yes" if given number is prime. Otherwise answer "no".');
     line('Question: %s', $number);
 
-    $userAnswer = (string) prompt('Your answer');
+    $userAnswer = prompt('Your answer');
 
     return [$userAnswer, $correctAnswer];
 }

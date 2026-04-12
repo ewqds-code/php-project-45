@@ -5,7 +5,7 @@ namespace BrainGames\Games\GCD;
 use function cli\line;
 use function cli\prompt;
 
-function gcdGame()
+function gcdGame(): array
 {
     $number1 = random_int(-100, 100);
     $number2 = random_int(-100, 100);
@@ -13,7 +13,7 @@ function gcdGame()
     line('Find the greatest common divisor of given numbers.');
     line('Question: %s %s', $number1, $number2);
 
-    $userAnswer = (string) prompt('Your answer');
+    $userAnswer = prompt('Your answer');
     $correctAnswer = findGcd($number1, $number2);
 
     return [$userAnswer, $correctAnswer];
@@ -21,11 +21,11 @@ function gcdGame()
 
 function findGcd(int $num1, int $num2): string
 {
-    if ($num2 == 0) {
+    if ($num2 === 0) {
         return (string) abs($num1);
     }
 
-    if ($num1 == 0) {
+    if ($num1 === 0) {
         return (string) abs($num2);
     }
 
