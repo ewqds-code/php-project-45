@@ -47,7 +47,7 @@ function isPrime(int $number): bool
     }
 
     $maxDivisor = (int) sqrt($number);
-    
+
     for ($i = FIRST_ODD_DIVISOR; $i <= $maxDivisor; $i += DIVISOR_STEP) {
         if ($number % $i === ZERO_REMAINDER) {
             return false;

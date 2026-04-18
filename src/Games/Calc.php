@@ -24,7 +24,7 @@ function calcGame(): array
     $operation = selectOperation();
 
     $expression = "$number1 $operation $number2";
-    
+
     line(GAME_CALC_DESCRIPTION);
     line(QUESTION_FORMAT, $expression);
 
@@ -37,6 +37,7 @@ function calcGame(): array
 function selectOperation(): string
 {
     $operations = [OPERATOR_ADD, OPERATOR_SUBTRACT, OPERATOR_MULTIPLY];
+
     return $operations[array_rand($operations)];
 }
 

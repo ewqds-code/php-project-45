@@ -40,7 +40,7 @@ function findGcd(int $num1, int $num2): string
     $num1 = abs($num1);
     $num2 = abs($num2);
     $gcd = $num1;
-    
+
     while ($num2 !== 0) {
         [$num1, $num2] = [$num2, $num1 % $num2];
         $gcd = $num1;

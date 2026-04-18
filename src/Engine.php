@@ -18,7 +18,7 @@ function runGame(string $gameName): void
 
     for ($i = 0; $i < ATTEMPT_COUNT; $i += 1) {
         [$userAnswer, $correctAnswer] = selectGame($gameName);
-        
+
         if (!checkAnswer($userAnswer, $correctAnswer, $name)) {
             return;
         }
@@ -49,6 +49,7 @@ function checkAnswer(string $userAnswer, string $correctAnswer, string $name): b
 {
     if ($userAnswer === $correctAnswer) {
         line('Correct!');
+
         return true;
     } else {
         line(
@@ -57,6 +58,7 @@ function checkAnswer(string $userAnswer, string $correctAnswer, string $name): b
             $correctAnswer,
             $name
         );
+
         return false;
     }
 }
