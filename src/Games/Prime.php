@@ -5,6 +5,8 @@ namespace BrainGames\Games\Prime;
 use function cli\line;
 use function cli\prompt;
 
+use const BrainGames\Config\{GAME_PRIME_DESCRIPTION, QUESTION_FORMAT, USER_ANSWER};
+
 const MIN_RANDOM_NUMBER = 0;
 const MAX_RANDOM_NUMBER = 10;
 const LOWEST_PRIME_NUMBER = 2;
@@ -22,10 +24,10 @@ function primeGame(): array
 
     $correctAnswer = (isPrime($number)) ? 'yes' : 'no';
 
-    line('Answer "yes" if given number is prime. Otherwise answer "no".');
-    line('Question: %s', $number);
+    line(GAME_PRIME_DESCRIPTION);
+    line(QUESTION_FORMAT, $number);
 
-    $userAnswer = prompt('Your answer');
+    $userAnswer = prompt(USER_ANSWER);
 
     return [$userAnswer, $correctAnswer];
 }
@@ -45,6 +47,7 @@ function isPrime(int $number): bool
     }
 
     $maxDivisor = (int) sqrt($number);
+    
     for ($i = FIRST_ODD_DIVISOR; $i <= $maxDivisor; $i += DIVISOR_STEP) {
         if ($number % $i === ZERO_REMAINDER) {
             return false;

@@ -16,6 +16,7 @@
             "BrainGames\\": "src/"
         },
         "files": [
+            "src/Config.php",
             "src/Cli.php",
             "src/Engine.php",
             "src/Games/Even.php",

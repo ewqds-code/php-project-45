@@ -5,6 +5,8 @@ namespace BrainGames\Games\Calc;
 use function cli\line;
 use function cli\prompt;
 
+use const BrainGames\Config\{GAME_CALC_DESCRIPTION, QUESTION_FORMAT, USER_ANSWER};
+
 const MIN_OPERAND_VALUE = 1;
 const MAX_OPERAND_VALUE = 9;
 const OPERATOR_ADD = '+';
@@ -18,13 +20,15 @@ function calcGame(): array
 {
     $number1 = random_int(MIN_OPERAND_VALUE, MAX_OPERAND_VALUE);
     $number2 = random_int(MIN_OPERAND_VALUE, MAX_OPERAND_VALUE);
+
     $operation = selectOperation();
 
-    $expression = "{$number1} {$operation} {$number2}";
-    line('What is the result of the expression?');
-    line('Question: %s', $expression);
+    $expression = "$number1 $operation $number2";
+    
+    line(GAME_CALC_DESCRIPTION);
+    line(QUESTION_FORMAT, $expression);
 
-    $userAnswer = prompt('Your answer');
+    $userAnswer = prompt(USER_ANSWER);
     $correctAnswer = calculateExpression($number1, $number2, $operation);
 
     return [$userAnswer, $correctAnswer];

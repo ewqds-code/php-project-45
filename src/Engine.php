@@ -11,15 +11,14 @@ use function BrainGames\Games\Prime\primeGame;
 use function BrainGames\Games\Progression\progressionGame;
 
 const ATTEMPT_COUNT = 3;
-const ATTEMPT_START_INDEX = 0;
-const ATTEMPT_STEP = 1;
 
 function runGame(string $gameName): void
 {
     $name = runGreetings();
 
-    for ($i = ATTEMPT_START_INDEX; $i < ATTEMPT_COUNT; $i += ATTEMPT_STEP) {
+    for ($i = 0; $i < ATTEMPT_COUNT; $i += 1) {
         [$userAnswer, $correctAnswer] = selectGame($gameName);
+        
         if (!checkAnswer($userAnswer, $correctAnswer, $name)) {
             return;
         }

@@ -4,5 +4,6 @@
 require_once sprintf('%s/../vendor/autoload.php', __DIR__);
 
 use function BrainGames\Engine\runGame;
+use const BrainGames\Config\GAME_GCD;
 
-runGame('gcd');
+runGame(GAME_GCD);

@@ -5,13 +5,13 @@ namespace BrainGames\Games\Progression;
 use function cli\line;
 use function cli\prompt;
 
+use const BrainGames\Config\{GAME_PROGRESSION_DESCRIPTION, QUESTION_FORMAT, USER_ANSWER};
+
 const PROGRESSION_LENGTH = 10;
 const MIN_START_VALUE = 0;
 const MAX_START_VALUE = 10;
 const MIN_STEP_VALUE = 1;
 const MAX_STEP_VALUE = 10;
-const START_INDEX = 0;
-const INDEX_STEP = 1;
 
 /**
  * @return array{string, string}
@@ -24,10 +24,10 @@ function progressionGame(): array
     $progression = generateProgression($start, PROGRESSION_LENGTH, $progressionStep);
     [$questionStr, $correctAnswer] = prepareGameData($progression);
 
-    line('What number is missing in the progression?');
-    line('Question: %s', $questionStr);
+    line(GAME_PROGRESSION_DESCRIPTION);
+    line(QUESTION_FORMAT, $questionStr);
 
-    $userAnswer = prompt('Your answer');
+    $userAnswer = prompt(USER_ANSWER);
 
     return [$userAnswer, $correctAnswer];
 }
@@ -36,7 +36,7 @@ function generateProgression(int $start, int $length, int $step): array
 {
     $progression = [];
 
-    for ($i = START_INDEX; $i < $length; $i += INDEX_STEP) {
+    for ($i = 0; $i < $length; $i += 1) {
         $progression[$i] = $start + $i * $step;
     }
 
